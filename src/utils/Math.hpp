@@ -1,5 +1,6 @@
 #include <math.h>
 #include <array>
+#include <iostream>
 
 #ifndef _MATH_HPP_
 #define _MATH_HPP_
@@ -32,6 +33,16 @@ public:
         }
         return result;
     }
+
+    friend std::ostream& operator<<(std::ostream& os, const vector<N>& v) {
+        os << "[ ";
+        for(auto i: v) {
+            os << i << " ";
+        }
+        os << "]";
+        return os;
+    }
+
 };
 
 };
