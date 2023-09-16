@@ -19,6 +19,17 @@ TEST(MathTest, Difference) {
     ASSERT_EQ(v1-v2, result);
 }
 
+TEST(MathTest, AddAssignment) {
+    math::vector v1{-1., 1., 2.};
+    math::vector v2{0., 1., -2.};
+
+    v1 += v2;
+
+    math::vector result{-1., 2., 0.};
+
+    ASSERT_EQ(v1, result);
+}
+
 TEST(MathTest, ScalarProduct) {
     math::vector v{-1., 1., 2.};
 

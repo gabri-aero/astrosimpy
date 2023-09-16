@@ -43,6 +43,13 @@ public:
         }
         return sum;
     }
+    
+    void operator+=(const vector& v2) {
+        if(this->size() != v2.size()) {
+            throw std::runtime_error("Vectors to be added have different dimensions");
+        }
+        *this = *this + v2;
+    }
 
     friend vector operator*(double scalar, const vector& v) {
         math::vector result;
