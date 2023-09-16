@@ -46,3 +46,8 @@ TEST(MathTest, Cross) {
 
     ASSERT_EQ(crossp(v1, v2), result);
 }
+
+TEST(MathTest, Ostream) {
+    math::vector<3> v1{3, 4, 5};
+    std::cout << v1 << std::endl;
+}

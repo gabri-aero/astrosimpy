@@ -1,6 +1,7 @@
 #include <math.h>
 #include <array>
 #include <iostream>
+#include <initializer_list>
 
 #ifndef _MATH_HPP_
 #define _MATH_HPP_
@@ -10,6 +11,12 @@ namespace math {
 template<std::size_t N>
 class vector : public std::array<double, N> {
 public:
+    static vector<N> from_initializer_list(std::initializer_list<double> ilist) {
+        math::vector<N> v;
+        std::copy(ilist.begin(), ilist.end(), v.begin());
+        return v;
+    }
+
     vector<N> operator+(const vector<N>& v2) {
         vector<N> sum;
         for(int i=0; i<N; i++) {

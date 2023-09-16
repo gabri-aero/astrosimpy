@@ -4,6 +4,7 @@
 #include <string>
 #include <stdlib.h>
 #include <memory>
+#include <initializer_list>
 
 #include <utils/Math.hpp>
 
@@ -16,6 +17,9 @@ protected:
 public:
     Body(double mass, math::vector<6> sv);
     Body(std::string name, double mass, math::vector<6> sv);
+    // Allow list initialization as well
+    Body(double mass, std::initializer_list<double> sv);
+    Body(std::string name, double mass, std::initializer_list<double> sv);
     // Setters
     void set_name(std::string);
     // Getters
