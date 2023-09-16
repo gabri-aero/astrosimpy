@@ -19,6 +19,14 @@ TEST(MathTest, Difference) {
     ASSERT_EQ(v1-v2, result);
 }
 
+TEST(MathTest, ScalarProduct) {
+    math::vector<3> v{-1., 1., 2.};
+
+    math::vector<3> result{4., -4., -8.};
+
+    ASSERT_EQ(-4*v, result);
+}
+
 TEST(MathTest, Norm) {
     math::vector<3> v{3, 4, 5};
     ASSERT_EQ(norm(v), sqrt(9 + 16 + 25));

@@ -24,6 +24,14 @@ public:
         }
         return sum;
     }
+
+    friend vector<N> operator*(double scalar, const vector<N>& v) {
+        math::vector<N> result;
+        for(int i=0; i<N; i++) {
+            result.at(i) = v.at(i)*scalar;
+        }
+        return result;
+    }
 };
 
 };
