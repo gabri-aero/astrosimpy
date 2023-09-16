@@ -59,6 +59,10 @@ public:
         return result;
     }
 
+    friend vector operator*(const vector& v, double scalar) {
+        return scalar*v;
+    }
+
     friend std::ostream& operator<<(std::ostream& os, const vector& v) {
         os << "[ ";
         for(auto i: v) {

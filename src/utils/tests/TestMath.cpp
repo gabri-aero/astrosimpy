@@ -36,6 +36,7 @@ TEST(MathTest, ScalarProduct) {
     math::vector result{4., -4., -8.};
 
     ASSERT_EQ(-4*v, result);
+    ASSERT_EQ(v*(-4), result);
 }
 
 TEST(MathTest, Norm) {
