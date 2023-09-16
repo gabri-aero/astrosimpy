@@ -36,5 +36,5 @@ TEST(MathTest, Cross) {
 
     math::vector<3> result{1, -17, 13};
 
-    ASSERT_EQ(cross(v1, v2), result);
+    ASSERT_EQ(crossp(v1, v2), result);
 }

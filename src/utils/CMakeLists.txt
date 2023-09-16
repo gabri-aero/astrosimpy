@@ -1,6 +1,6 @@
 set(CPP_SOURCES Math.cpp)
 set(HPP_HEADERS Math.hpp)
-target_sources(${CPP_TARGET} PRIVATE  ${HPP_HEADERS}) #${CPP_SOURCES}
+target_sources(${CPP_TARGET} PRIVATE  ${CPP_SOURCES} ${HPP_HEADERS})
 
 message(STATUS "Utils included")
 
