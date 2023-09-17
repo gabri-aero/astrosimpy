@@ -51,6 +51,14 @@ public:
         *this = *this + v2;
     }
 
+    vector operator/(double scalar) {
+        math::vector result;
+        for(int i=0; i<this->size(); i++) {
+            result.push_back(this->at(i)/scalar);
+        }
+        return result;
+    }
+
     friend vector operator*(double scalar, const vector& v) {
         math::vector result;
         for(int i=0; i<v.size(); i++) {
@@ -72,6 +80,24 @@ public:
         return os;
     }
 
+    // Overload methods
+    void push_back(double value) {
+        std::vector<double>::push_back(value); // Call the base class method
+    }
+    
+    void push_back(vector vec) {
+        for(auto value: vec) {
+            std::vector<double>::push_back(value);
+        } // Call the base class method
+    }
+
+    math::vector subvec(int start, int end) {
+        math::vector v;
+        for(int i=start; i<end; i++) {
+            v.push_back(this->at(i));
+        }
+        return v;
+    }
 };
 
 };

@@ -39,6 +39,14 @@ TEST(MathTest, ScalarProduct) {
     ASSERT_EQ(v*(-4), result);
 }
 
+TEST(MathTest, Division) {
+    math::vector v{-1., 1., 2.};
+
+    math::vector result{-0.5, 0.5, 1.};
+
+    ASSERT_EQ(v/2, result);
+}
+
 TEST(MathTest, Norm) {
     math::vector v{3, 4, 5};
     ASSERT_EQ(norm(v), sqrt(9 + 16 + 25));
@@ -62,4 +70,16 @@ TEST(MathTest, Cross) {
 TEST(MathTest, Ostream) {
     math::vector v1{3, 4, 5};
     std::cout << v1 << std::endl;
+}
+
+TEST(MathTest, PushBack) {
+    math::vector v{3, 4};
+    v.push_back(5);
+    ASSERT_EQ(v.at(2), 5);
+}
+
+TEST(MathTest, Subvec) {
+    math::vector v{3, 4, 5, 6, 7};
+    math::vector subvector{4, 5, 6};
+    ASSERT_EQ(v.subvec(1, 4), subvector);
 }
