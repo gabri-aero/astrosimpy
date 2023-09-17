@@ -32,8 +32,4 @@ add_subdirectory(src)
 message(STATUS "Creating python package")
 
 add_subdirectory(external/pybind11)
-
-set(PYTHON_PROJECT_NAME ${PROJECT_NAME}py)
-pybind11_add_module(${PYTHON_PROJECT_NAME} src/main.cpp)
-target_compile_definitions(${PYTHON_PROJECT_NAME}
-                           PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
+add_subdirectory(pybindings)
