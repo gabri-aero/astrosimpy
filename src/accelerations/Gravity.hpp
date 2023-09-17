@@ -11,7 +11,7 @@ math::vector gravity(Body i, Body j) {
     math::vector rij = j.get_pos() - i.get_pos();
     double mi = i.get_mass();   
     double mj = j.get_mass();
-    return G*mi*mj/pow(norm(rij), 3)*rij;
+    return G*mj/pow(norm(rij), 3)*rij;
 }
 
 #endif // _GRAVITY_HPP_
