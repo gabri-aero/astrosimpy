@@ -21,6 +21,10 @@ Body::Body(std::string name, double mass, std::initializer_list<double> init_sv)
 // Body setters
 void Body::set_name(std::string name) {
     this->name = name;
+};
+
+void Body::set_sv(math::vector sv) {
+    this->sv = std::make_shared<math::vector>(sv);
 }
 
 

@@ -22,6 +22,7 @@ public:
     Body(std::string name, double mass, std::initializer_list<double> sv);
     // Setters
     void set_name(std::string);
+    void set_sv(math::vector);
     // Getters
     math::vector get_pos() const;
     math::vector get_vel() const;

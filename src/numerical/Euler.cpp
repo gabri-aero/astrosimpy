@@ -3,5 +3,6 @@
 math::vector Euler::integrate() {
     double t = data.back().first;
     math::vector X = data.back().second;
-    return X + dX(t, X)*h;
+    math::vector Xn = X + dX(t, X)*h;
+    return Xn;
 };

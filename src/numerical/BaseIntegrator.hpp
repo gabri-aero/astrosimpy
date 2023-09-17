@@ -1,4 +1,5 @@
 #include <utils/Math.hpp>
+#include <functional>
 
 #ifndef _BASE_INTEGRATOR_HPP_
 #define _BASE_INTEGRATOR_HPP_
@@ -9,19 +10,19 @@ protected:
     double t0;
     math::vector X0;
     std::vector<std::pair<double, math::vector>> data;
-    math::vector(*dX)(double, math::vector);
 public:
+    std::function<math::vector(double, math::vector)> dX;
     BaseIntegrator(double step) : h{step} {};
     void set_ic(double t0, math::vector X0) {
         this->t0 = t0;
         this->X0 = X0;
         data.emplace_back(t0, X0);
     };
-    void set_dX(math::vector(*dX_func)(double, math::vector)) {
+    void set_dX(std::function<math::vector(double, math::vector)> dX_func) {
         this->dX = dX_func;
     };
     void run(double tf) {
-        for(double t=t0; t < (tf+h); t+=h) {
+        for(double t=t0; t < tf; t+=h) {
             data.emplace_back(t+h, integrate());
         }
     }
