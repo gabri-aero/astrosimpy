@@ -12,13 +12,6 @@ namespace math {
 class vector : public std::vector<double> {
 public:
     using std::vector<double>::vector;
-
-
-    static vector from_initializer_list(std::initializer_list<double> ilist) {
-        math::vector v;
-        std::copy(ilist.begin(), ilist.end(), v.begin());
-        return v;
-    }
     
     vector(std::initializer_list<double> ilist) : std::vector<double>(ilist) {}
 

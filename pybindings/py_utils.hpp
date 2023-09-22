@@ -1,5 +1,6 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
+#include <pybind11/numpy.h>
 #include <sstream>
 
 #include <utils/Math.hpp>
@@ -51,7 +52,18 @@ void init_utils(py::module &m) {
             return scalar * v;
         });
 
-    m.def("norm", &norm);
-    m.def("dot", &dot);
-    m.def("cross", &cross);
+    m.def("norm", [](std::list<double>& l) -> double {
+        auto v = math::vector{l.begin(), l.end()};
+        return norm(v);
+    });
+    m.def("dot", [](std::list<double>& l1, std::list<double>& l2) -> double {
+        auto v1 = math::vector{l1.begin(), l1.end()};
+        auto v2 = math::vector{l2.begin(), l2.end()};
+        return dot(v1, v2);
+    });
+    m.def("cross", [](std::list<double>& l1, std::list<double>& l2) -> math::vector {
+        auto v1 = math::vector{l1.begin(), l1.end()};
+        auto v2 = math::vector{l2.begin(), l2.end()};
+        return cross(v1, v2);
+    });
 }
