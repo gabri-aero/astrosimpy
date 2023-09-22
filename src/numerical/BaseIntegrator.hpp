@@ -36,9 +36,6 @@ public:
         }
     }
     std::vector<std::pair<double, math::vector>> get_data() const {
-        for(auto pair: data) {
-            std::cout << "T: " << pair.first << " X: " << pair.second.at(0) << std::endl;
-        }
         return data;
     }
     virtual std::pair<double, math::vector> integrate() = 0;
