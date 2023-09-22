@@ -15,4 +15,4 @@ step = day/5
 
 solar_system = [earth, sun, venus, mars, mercury]
 
-n_body(solar_system, time, step, "inner-solar-system", speed=10e5, legend=True, save=True)
+n_body(solar_system, time, step, 1, "inner-solar-system", legend=True, save=False, secs=15)

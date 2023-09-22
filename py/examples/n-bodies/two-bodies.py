@@ -12,5 +12,5 @@ time = 20
 
 bodies_ = [b1, b2]
 
-n_body([b1, b2], time, step, "two-bodies", True)
+n_body([b1, b2], time, step, 1e-10,"two-bodies")
 

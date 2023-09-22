@@ -7,8 +7,8 @@ from matplotlib import animation
 from matplotlib.animation import PillowWriter
 
 
-def n_body(bodies_, t, step, name, speed=1, legend=False, save=False, momentum=False):
-    integrator = numerical.RK4(step)
+def n_body(bodies_, t, step, tol, name="", legend=False, save=False, momentum=False, fps=60, secs=10):
+    integrator = numerical.RK45(step, tol)
 
     astro_engine = engine.AstroEngine()
     astro_engine.add_bodies(bodies_)
@@ -26,11 +26,11 @@ def n_body(bodies_, t, step, name, speed=1, legend=False, save=False, momentum=F
     sv = np.array(sv)
     t = np.array(t)
 
-    N = speed * 5e3 / (len(t)*step)
-    print(f"N = {N}")
-    N = int(N)
-    if N == 0:
-        N = 1
+    frames = fps*secs
+    N = int(np.ceil(len(t)/frames))
+    if N == 1:
+        fps = len(t)/secs
+    print(N)
 
     x = sv[::N, 0::6]
     y = sv[::N, 1::6]
@@ -58,7 +58,7 @@ def n_body(bodies_, t, step, name, speed=1, legend=False, save=False, momentum=F
     ax = fig.add_subplot()
 
     num_of_points = len(bodies_)
-    interval = 1
+    interval = 1000/fps
     num_of_frames = x.shape[0]
 
     points = [ax.plot([], [], 'o')[0] for i in range(len(bodies_))]
