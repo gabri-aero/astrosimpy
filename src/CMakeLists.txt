@@ -1,0 +1,10 @@
+target_include_directories(${CPP_TARGET}
+    PRIVATE
+    ${CMAKE_SOURCE_DIR}/src/
+)
+
+add_subdirectory(bodies)
+add_subdirectory(accelerations)
+add_subdirectory(engine)
+add_subdirectory(utils)
+add_subdirectory(numerical)
