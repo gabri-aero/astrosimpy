@@ -22,14 +22,26 @@ public:
         this->dX = dX_func;
     };
     void run(double tf) {
-        for(double t=t0; t < tf; t+=h) {
-            data.emplace_back(t+h, integrate());
+        for(double t=t0; true; t+=h) {
+            std::pair<double, math::vector> next = integrate();
+            if(next.first > tf) {
+                h = tf-data.back().first;
+                next = integrate();
+                std::cout << "T: " << next.first << " X: " << next.second.at(0)  << " h: " << next.first - data.back().first << std::endl;
+                data.emplace_back(next.first, next.second);
+                break;
+            }
+            std::cout << "T: " << next.first << " X: " << next.second.at(0)  << " h: " << next.first - data.back().first << " t: " << t << std::endl;
+            data.emplace_back(next.first, next.second);
         }
     }
     std::vector<std::pair<double, math::vector>> get_data() const {
+        for(auto pair: data) {
+            std::cout << "T: " << pair.first << " X: " << pair.second.at(0) << std::endl;
+        }
         return data;
     }
-    virtual math::vector integrate() = 0;
+    virtual std::pair<double, math::vector> integrate() = 0;
 };
 
 #endif // _BASE_INTEGRATOR_HPP_

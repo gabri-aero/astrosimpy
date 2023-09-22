@@ -7,7 +7,7 @@ class Euler: public BaseIntegrator {
 public:
     using BaseIntegrator::BaseIntegrator;
 
-    math::vector integrate() override;
+    std::pair<double, math::vector> integrate() override;
 };
 
 #endif // _EULER_HPP_

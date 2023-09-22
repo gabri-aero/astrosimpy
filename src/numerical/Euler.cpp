@@ -1,8 +1,8 @@
 #include "Euler.hpp"
 
-math::vector Euler::integrate() {
+std::pair<double, math::vector> Euler::integrate() {
     double t = data.back().first;
     math::vector X = data.back().second;
     math::vector Xn = X + dX(t, X)*h;
-    return Xn;
+    return std::make_pair(t+h, Xn);
 };

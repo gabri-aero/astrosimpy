@@ -2,3 +2,5 @@ build/
 .venv/
 .idea/
 .vscode/
+__pycache__
+astrosimpy-0.0.1-cp311-cp311-linux_x86_64.whl

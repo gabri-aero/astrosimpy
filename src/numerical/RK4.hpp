@@ -7,7 +7,7 @@ class RK4: public BaseIntegrator {
 public:
     using BaseIntegrator::BaseIntegrator;
 
-    math::vector integrate() override;
+    std::pair<double, math::vector> integrate() override;
 };
 
 #endif // _RK4_HPP_
