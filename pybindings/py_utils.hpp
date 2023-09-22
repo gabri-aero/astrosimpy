@@ -9,7 +9,7 @@
 namespace py = pybind11;
 
 void init_utils(py::module &m) {
-    py::class_<math::vector>(m, "vec")
+    py::class_<math::vector>(m, "_vec")
         .def(py::init([](const std::list<double>& l) {
             return math::vector(l.begin(), l.end());
         }))

@@ -1,4 +1,5 @@
 from astrosimpy import numerical, engine
+from astrosimpy.utils import cross
 
 from matplotlib import pyplot as plt
 import numpy as np
@@ -49,7 +50,7 @@ def n_body(bodies_, t, step, name, speed=1, legend=False, save=False, momentum=F
         for j in range(len(bodies_)):
             pj = bodies_[j].get_mass() * v[i, j]
             rj = r[i, j]
-            Lj = utils.cross(rj, pj)
+            Lj = cross(rj, pj)
             p[i] = p[i] + pj
             L[i] = L[i] + Lj
 
