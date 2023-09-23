@@ -1,5 +1,5 @@
 set(CPP_SOURCES Vector.cpp)
-set(HPP_HEADERS Vector.hpp Legendre.hpp Utils.hpp)
+set(HPP_HEADERS Vector.hpp Legendre.hpp Utils.hpp SphericalHarmonics.hpp)
 target_sources(${CPP_TARGET} PRIVATE  ${CPP_SOURCES} ${HPP_HEADERS})
 
 message(STATUS "Utils included")
