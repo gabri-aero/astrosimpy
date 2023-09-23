@@ -13,7 +13,12 @@
 ```{toctree}
 :caption: 'Contents:'
 :maxdepth: 2
+
+usage
+examples
 ```
+
+For further info check {doc}`usage`. Installation instructions are provided here: {ref}`Installation`.
 
 
 ```{warning}
