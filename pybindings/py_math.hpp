@@ -5,10 +5,13 @@
 
 #include <math/Vector.hpp>
 #include <math/Vector.cpp> // pybind seems not only to need the header but also the source
+#include <math/Legendre.hpp>
+#include <math/SphericalHarmonics.hpp>
 
 namespace py = pybind11;
 
 void init_math(py::module &m) {
+    // Vector class
     py::class_<math::vector>(m, "_vec")
         .def(py::init([](const std::list<double>& l) {
             return math::vector(l.begin(), l.end());
@@ -52,6 +55,7 @@ void init_math(py::module &m) {
             return scalar * v;
         });
 
+    // Vector operations
     m.def("norm", [](std::list<double>& l) -> double {
         auto v = math::vector{l.begin(), l.end()};
         return norm(v);
@@ -66,4 +70,15 @@ void init_math(py::module &m) {
         auto v2 = math::vector{l2.begin(), l2.end()};
         return cross(v1, v2);
     });
+
+    // Legendre polynomials
+    m.def("legendre", [](int n, double x) -> double {
+        return legendre(n, x);
+    }, "Calculate Legendre Polynomial");
+    m.def("legendre", [](int l, int m, double x) -> double {
+        return legendre(l, m, x);
+    }, "Calculate Associated Legendre Polynomial");
+
+    // Spherical harmonics
+    m.def("spherical_harmonics", &spherical_harmonics, "Calculate Spherical Harmonics");
 }
