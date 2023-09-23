@@ -1,28 +1,36 @@
 # Astrosim
 Astrodynamics library where I will be implementing all my learnings in the field.
 
-For the moment, the following simulations can be undertaken:
-- [N-body problem](#n-body-problem)
+## How to install 
 
-## Example use cases
+1. Clone the repository
+```{code}
+git clone https://github.com/gabri-aero/astrosim
+```
 
-<a name="n-body-problem"></a>
-### N-body problem
+2. Build the C++ library
+```{code}
+mkdir build
+cd build
+cmake ..
+make
+```
 
-#### Stable symmetric configurations
+3. Build the python wheel file. 
+```{code}
+python3 setup.py bdist_wheel
+```
 
-<p style="text-align:center;">
-  <img src="py/examples/n-bodies/gif/two-bodies.gif" alt="Two-bodies" width="45%" />
-  <img src="py/examples/n-bodies/gif/two-bodies-moving.gif" alt="Two-bodies moving" width="45%" />
-</p>
+4. Library .whl file is in dist/ folder.
+```{code}
+cd dist
+```
 
-<p style="text-align:center;">
-  <img src="py/examples/n-bodies/gif/four-bodies.gif" alt="Four-bodies" width="45%" />
-  <img src="py/examples/n-bodies/gif/four-bodies-moving.gif" alt="Four-bodies moving" width="45%" />
-</p>
+5. Install the .whl file in your environment.
+```{code}
+pip install astrosimpy*.whl
+```
 
-#### Inner solar system
-
-<p style="text-align:center;">
-  <img src="py/examples/n-bodies/gif/inner-solar-system.gif" alt="Inner solar system" width=80% />
-</p>
+```{warning}
+This library is still in its early phase of the development.
+```
