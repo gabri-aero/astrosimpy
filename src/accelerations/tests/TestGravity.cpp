@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include <accelerations/Gravity.hpp>
-#include <utils/Math.hpp>
+#include <math/Vector.hpp>
 
 TEST(GravityTest, SinglePoint) {
     Body b1{1, {7.682, 0.845, 2.946, 4.512, 9.073, 1.234}};

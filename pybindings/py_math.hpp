@@ -3,12 +3,12 @@
 #include <pybind11/numpy.h>
 #include <sstream>
 
-#include <utils/Math.hpp>
-#include <utils/Math.cpp> // pybind seems not only to need the header but also the source
+#include <math/Vector.hpp>
+#include <math/Vector.cpp> // pybind seems not only to need the header but also the source
 
 namespace py = pybind11;
 
-void init_utils(py::module &m) {
+void init_math(py::module &m) {
     py::class_<math::vector>(m, "_vec")
         .def(py::init([](const std::list<double>& l) {
             return math::vector(l.begin(), l.end());

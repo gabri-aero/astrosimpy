@@ -1,4 +1,4 @@
-#include "Math.hpp"
+#include "Vector.hpp"
 
 double norm(math::vector vec) {
     double sum=0;

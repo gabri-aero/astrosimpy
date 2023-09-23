@@ -1,5 +1,5 @@
 #include <bodies/Body.hpp>
-#include <utils/Math.hpp>
+#include <math/Vector.hpp>
 
 #ifndef _GRAVITY_HPP_
 #define _GRAVITY_HPP_

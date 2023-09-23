@@ -6,7 +6,7 @@
 #include <memory>
 #include <initializer_list>
 
-#include <utils/Math.hpp>
+#include <math/Vector.hpp>
 
 
 class Body {

@@ -1,4 +1,4 @@
-#include <utils/Math.hpp>
+#include <math/Vector.hpp>
 #include <functional>
 
 #ifndef _BASE_INTEGRATOR_HPP_
