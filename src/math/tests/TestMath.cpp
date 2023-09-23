@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include <utils/Math.hpp>
+#include <math/Vector.hpp>
 
 TEST(MathTest, Sum) {
     math::vector v1{-1., 1., 2.};

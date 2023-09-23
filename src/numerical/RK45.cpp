@@ -1,5 +1,5 @@
 #include "RK45.hpp"
-#include <utils/Math.hpp>
+#include <math/Vector.hpp>
 
 std::pair<double, math::vector> RK45::integrate() {
 
