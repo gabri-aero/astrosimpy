@@ -30,7 +30,3 @@ cd dist
 ```{code}
 pip install astrosimpy*.whl
 ```
-
-```{warning}
-This library is still in its early phase of the development.
-```
