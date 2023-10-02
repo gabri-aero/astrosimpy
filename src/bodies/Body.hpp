@@ -28,6 +28,7 @@ public:
     math::vector get_vel() const;
     math::vector get_sv() const;
     double get_mass() const;
+    double get_mu() const;
     std::string get_name() const;
 };
 

@@ -1,4 +1,5 @@
 #include "Body.hpp"
+#include <accelerations/Gravity.hpp>
 
 // Body constructor
 
@@ -45,6 +46,10 @@ math::vector Body::get_sv() const{
 double Body::get_mass() const {
     return mass;
 }
+
+double Body::get_mu() const {
+    return G*mass;
+};
 
 std::string Body::get_name() const {
     return name;
