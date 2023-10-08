@@ -1,4 +1,5 @@
 #include <math/Vector.hpp>
+#include <iostream>
 
 #ifndef _ORBITAL_ELEMENTS_HPP
 #define _ORBITAL_ELEMENTS_HPP
@@ -16,6 +17,7 @@ class OrbitalElements {
     math::vector oe;
 public:
     OrbitalElements(double a, double e, double raan, double i, double aop, double ta);
+    friend std::ostream& operator<<(std::ostream& os, const OrbitalElements& obj);
 };
 
 #endif // _ORBITAL_ELEMENTS_HPP
