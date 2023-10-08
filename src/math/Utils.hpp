@@ -1,4 +1,5 @@
 #include <stdexcept>
+#include <math.h>
 
 #ifndef _UTILS_HPP_
 #define _UTILS_HPP_
@@ -12,6 +13,14 @@ int C(int n, int k) {
         throw std::invalid_argument( "Unexisting combinatorial number: k cannot be larger than n" );
     }
     return factorial(n) / (factorial(k) * factorial(n-k));
+}
+
+double rad2deg(double rad) {
+    return rad * 180 / M_PI; 
+}
+
+double deg2rad(double deg) {
+    return deg * M_PI / 180;
 }
 
 #endif //_UTILS_HPP_
