@@ -53,5 +53,19 @@ OrbitalElements StateVector::to_oe(Body central) {
     }
     ta = atan2(dot(cross(ip, ur), kp), dot(ip, ur));
 
+    // Check angles range
+    if (i<0) {
+        i += M_PI;
+    }
+    if (raan < 0) {
+        raan += 2 * M_PI;
+    }
+    if (aop < 0) {
+        aop += 2* M_PI;
+    }
+    if (ta < 0) {
+        ta += 2 * M_PI;
+    }
+
     return OrbitalElements{a, e, raan, i, aop, ta};
 }

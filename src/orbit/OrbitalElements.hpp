@@ -1,4 +1,5 @@
 #include <math/Vector.hpp>
+#include <bodies/Body.hpp>
 #include <iostream>
 
 #ifndef _ORBITAL_ELEMENTS_HPP
@@ -17,6 +18,9 @@ class OrbitalElements {
     math::vector oe;
 public:
     OrbitalElements(double a, double e, double raan, double i, double aop, double ta);
+    math::vector get_oe();
+    StateVector to_sv(Body);
+    bool operator==(const OrbitalElements& obj);
     friend std::ostream& operator<<(std::ostream& os, const OrbitalElements& obj);
 };
 
