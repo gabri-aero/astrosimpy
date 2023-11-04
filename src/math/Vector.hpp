@@ -23,6 +23,18 @@ public:
         return vec;
     }
 
+    bool operator==(const vector& v2) {
+        if(this->size() != v2.size()) {
+            return false;
+        } else {
+            for(int i = 0; i < this->size(); i++) {
+                if(this->at(i) != v2.at(i)) {
+                    return false;
+                }
+            }
+        }
+    }
+
     vector operator+(const vector& v2) {
         if(this->size() != v2.size()) {
             throw std::runtime_error("Vectors to be added have different dimensions");

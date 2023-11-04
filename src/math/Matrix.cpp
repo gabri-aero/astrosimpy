@@ -43,6 +43,22 @@ math::matrix math::matrix::T() const {
     return this->transpose();
 }
 
+bool math::matrix::operator==(const math::matrix& B) {
+    math::matrix A = *this;
+    try {
+        check_dim(A, B);
+        int rows = A.dim().at(0);
+        for(int i = 0; i < rows; i++) {
+            if(A.at(i) != B.at(i)) {
+                return false;
+            }
+        }
+    } catch (const std::invalid_argument& e) {
+        return false;
+    }
+    return true;
+}
+
 math::matrix math::matrix::operator+(const math::matrix& B) {
     math::matrix A = *this;
     check_dim(A, B);

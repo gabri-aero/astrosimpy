@@ -15,6 +15,7 @@ public:
 
     matrix(std::initializer_list<math::vector> ilist) : std::vector<math::vector>(ilist) {};
 
+    bool operator==(const matrix& other);
     matrix operator+(const matrix& other);
     matrix operator-(const matrix& other);
     matrix operator*(const matrix& other);
