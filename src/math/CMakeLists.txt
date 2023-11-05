@@ -7,7 +7,8 @@ set(HPP_HEADERS
     Matrix.hpp 
     Legendre.hpp 
     Utils.hpp 
-    SphericalHarmonics.hpp)
+    SphericalHarmonics.hpp
+    Rotation.hpp)
     
 target_sources(${CPP_TARGET} PRIVATE  ${CPP_SOURCES} ${HPP_HEADERS})
 
