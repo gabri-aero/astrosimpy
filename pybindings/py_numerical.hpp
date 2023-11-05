@@ -1,11 +1,8 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 #include <numerical/Euler.hpp>
-#include <numerical/Euler.cpp>
 #include <numerical/RK4.hpp>
-#include <numerical/RK4.cpp>
 #include <numerical/RK45.hpp>
-#include <numerical/RK45.cpp>
 
 namespace py = pybind11;
 

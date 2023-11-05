@@ -1,7 +1,6 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 #include <bodies/Body.hpp>
-#include <bodies/Body.cpp>
 
 namespace py = pybind11;
 
