@@ -33,6 +33,7 @@ public:
                 }
             }
         }
+        return true;
     }
 
     vector operator+(const vector& v2) {
