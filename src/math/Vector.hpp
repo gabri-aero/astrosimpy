@@ -15,6 +15,26 @@ public:
     
     vector(std::initializer_list<double> ilist) : std::vector<double>(ilist) {}
 
+    static vector zeros(int N) {
+        math::vector vec;
+        for(int i=0; i<N; i++) {
+            vec.push_back(0);
+        }
+        return vec;
+    }
+
+    bool operator==(const vector& v2) {
+        if(this->size() != v2.size()) {
+            return false;
+        } else {
+            for(int i = 0; i < this->size(); i++) {
+                if(this->at(i) != v2.at(i)) {
+                    return false;
+                }
+            }
+        }
+    }
+
     vector operator+(const vector& v2) {
         if(this->size() != v2.size()) {
             throw std::runtime_error("Vectors to be added have different dimensions");
