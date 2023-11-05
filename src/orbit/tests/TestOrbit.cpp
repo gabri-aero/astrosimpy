@@ -44,3 +44,10 @@ TEST(TestOrbit, GeneralTest) {
     assert_near_sv(sv2_expected, oe2.to_sv(earth).get_rv());
 
 }
+
+TEST(TestOrbit, Type) {
+    Orbit orbit{1e6, 0, 0, 0, 0, 0};
+    Orbit orbit2{-1e6, 0, 0, 0, 0, 0};
+    ASSERT_EQ(orbit.get_type(), OrbitType::ELLIPTICAL);
+    ASSERT_EQ(orbit2.get_type(), OrbitType::HYPERBOLIC);
+}

@@ -14,6 +14,17 @@ math::vector Orbit::get_oe() {
     return oe;
 }
 
+OrbitType Orbit::get_type() {
+    double a = oe.at(0);
+    if(a < 0) {
+        return OrbitType::HYPERBOLIC;
+    } else if (a > 0) {
+        return OrbitType::ELLIPTICAL;
+    } else {
+        return OrbitType::PARABOLIC; // numerically not likely to happen...
+    }
+}
+
 StateVector Orbit::to_sv(Body body) {
     double a = oe.at(0);
     double e = oe.at(1);
