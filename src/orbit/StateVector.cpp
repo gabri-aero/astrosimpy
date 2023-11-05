@@ -10,7 +10,7 @@ StateVector::StateVector(math::vector rv)
     : rv{rv} {
 }
 
-math::vector StateVector::get_rv() {
+math::vector StateVector::get_rv() const {
     return rv;
 }
 
@@ -72,4 +72,9 @@ Orbit StateVector::to_orbit(Body central) {
     }
 
     return Orbit{a, e, raan, i, aop, ta};
+}
+
+std::ostream& operator<<(std::ostream& os, const StateVector& obj) {
+    os << "r: " << obj.rv.subvec(0, 3) << std::endl << "v: " << obj.rv.subvec(3, 6) << std::endl;
+    return os;
 }
