@@ -7,10 +7,11 @@
 class OrbitalElements; // forward class
 
 class StateVector {
-    math::vector sv;
+    math::vector rv;
 public:
     StateVector(double rx, double ry, double rz, double vx, double vy, double vz);
-    StateVector(math::vector sv);
+    StateVector(math::vector rv);
+    math::vector get_rv();
     OrbitalElements to_oe(Body central);
 };
 

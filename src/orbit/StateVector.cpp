@@ -3,16 +3,20 @@
 #include <bodies/Body.hpp>
 
 StateVector::StateVector(double rx, double ry, double rz, double vx, double vy, double vz) 
-    : sv{math::vector{rx, ry, rz, vx, vy, vz}} {
+    : rv{math::vector{rx, ry, rz, vx, vy, vz}} {
 }
 
-StateVector::StateVector(math::vector sv) 
-    : sv{sv} {
+StateVector::StateVector(math::vector rv) 
+    : rv{rv} {
+}
+
+math::vector StateVector::get_rv() {
+    return rv;
 }
 
 OrbitalElements StateVector::to_oe(Body central) {
-    math::vector r_vec = sv.subvec(0,3);
-    math::vector v_vec = sv.subvec(3,6);
+    math::vector r_vec = rv.subvec(0,3);
+    math::vector v_vec = rv.subvec(3,6);
     double r = norm(r_vec);
     double v = norm(v_vec);
     // Compute angular momentum 
