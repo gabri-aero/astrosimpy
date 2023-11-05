@@ -1,5 +1,5 @@
 #include "StateVector.hpp"
-#include "OrbitalElements.hpp"
+#include "Orbit.hpp"
 #include <bodies/Body.hpp>
 
 StateVector::StateVector(double rx, double ry, double rz, double vx, double vy, double vz) 
@@ -14,7 +14,7 @@ math::vector StateVector::get_rv() {
     return rv;
 }
 
-OrbitalElements StateVector::to_oe(Body central) {
+Orbit StateVector::to_orbit(Body central) {
     math::vector r_vec = rv.subvec(0,3);
     math::vector v_vec = rv.subvec(3,6);
     double r = norm(r_vec);
@@ -71,5 +71,5 @@ OrbitalElements StateVector::to_oe(Body central) {
         ta += 2 * M_PI;
     }
 
-    return OrbitalElements{a, e, raan, i, aop, ta};
+    return Orbit{a, e, raan, i, aop, ta};
 }

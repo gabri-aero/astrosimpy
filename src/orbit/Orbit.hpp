@@ -13,15 +13,15 @@ enum OrbitType {
     HYPERBOLIC
 };
 
-class OrbitalElements {
+class Orbit {
     OrbitType type;
     math::vector oe;
 public:
-    OrbitalElements(double a, double e, double raan, double i, double aop, double ta);
+    Orbit(double a, double e, double raan, double i, double aop, double ta);
     math::vector get_oe();
     StateVector to_sv(Body);
-    bool operator==(const OrbitalElements& obj);
-    friend std::ostream& operator<<(std::ostream& os, const OrbitalElements& obj);
+    bool operator==(const Orbit& obj);
+    friend std::ostream& operator<<(std::ostream& os, const Orbit& obj);
 };
 
 #endif // _ORBITAL_ELEMENTS_HPP

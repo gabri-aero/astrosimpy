@@ -1,9 +1,9 @@
 set(CPP_SOURCES 
-    OrbitalElements.cpp 
+    Orbit.cpp 
     StateVector.cpp)
 
 set(HPP_HEADERS 
-    OrbitalElements.hpp 
+    Orbit.hpp 
     StateVector.hpp)
 
 target_sources(${CPP_TARGET} PRIVATE  ${CPP_SOURCES} ${HPP_HEADERS})

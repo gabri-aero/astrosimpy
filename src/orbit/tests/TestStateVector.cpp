@@ -1,14 +1,14 @@
 #include <gtest/gtest.h>
 #include <orbit/StateVector.hpp>
 #include <bodies/Body.hpp>
-#include <orbit/OrbitalElements.hpp>
+#include <orbit/Orbit.hpp>
 
-TEST(StateVectorTest, to_oe) {
+TEST(StateVectorTest, to_orbit) {
     StateVector sv{6e6, 0, 8e6, 0, 7e3, 0};
     StateVector sv2{-6045e3, -3490e3, 2500e3, -3.457e3, 6.618e3, 2.533e3};
     Body earth(5.9733e24, {0, 0, 0, 0, 0, 0});
-    auto oe1 = sv.to_oe(earth).get_oe();
-    auto oe2 = sv2.to_oe(earth).get_oe();
+    auto oe1 = sv.to_orbit(earth).get_oe();
+    auto oe2 = sv2.to_orbit(earth).get_oe();
 
     // Assert first case
     ASSERT_NEAR(12975.347e3, oe1.at(0), 1);  
