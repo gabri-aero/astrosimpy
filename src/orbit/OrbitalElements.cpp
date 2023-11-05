@@ -1,7 +1,9 @@
 #include "OrbitalElements.hpp"
 #include "StateVector.hpp"
+
 #include <iomanip>
 #include <math/Utils.hpp>
+#include <math/Rotation.hpp>
 
 OrbitalElements::OrbitalElements(double a, double e, double raan, double i, double aop, double ta) 
     : oe{math::vector{a, e, raan, i, aop, ta}}{
@@ -31,9 +33,10 @@ StateVector OrbitalElements::to_sv(Body body) {
     auto v_orb = v*uv; // velocity vector
 
     // Rotate from orbital plane orientation
-
-    auto r_vec = r_orb;
-    auto v_vec = v_orb;
+    auto L = R3(-aop)*R1(-i)*R3(-raan); // rotation matrix from 3d space to orbital plane
+    L = L.T(); // rotation matrix from orbital plane to 3d space
+    auto r_vec = L*r_orb;
+    auto v_vec = L*v_orb;
 
     return StateVector{
         r_vec.at(0),
