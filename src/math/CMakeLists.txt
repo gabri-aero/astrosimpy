@@ -1,6 +1,7 @@
 set(CPP_SOURCES
     Vector.cpp
-    Matrix.cpp)
+    Matrix.cpp
+    Utils.cpp)
 
 set(HPP_HEADERS
     Vector.hpp 
