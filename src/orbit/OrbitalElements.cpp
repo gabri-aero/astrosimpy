@@ -33,8 +33,7 @@ StateVector OrbitalElements::to_sv(Body body) {
     auto v_orb = v*uv; // velocity vector
 
     // Rotate from orbital plane orientation
-    auto L = R3(-aop)*R1(-i)*R3(-raan); // rotation matrix from 3d space to orbital plane
-    L = L.T(); // rotation matrix from orbital plane to 3d space
+    auto L = R3(-raan)*R1(-i)*R3(-aop); // rotation matrix into space-fixed frame
     auto r_vec = L*r_orb;
     auto v_vec = L*v_orb;
 
