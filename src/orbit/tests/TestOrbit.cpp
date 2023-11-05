@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include <orbit/OrbitalElements.hpp>
+#include <orbit/Orbit.hpp>
 #include <orbit/StateVector.hpp> // very important to avoid error: invalid uso of incomplete type 'class StateVector'
 #include <math/Utils.hpp>
 
@@ -8,11 +8,11 @@ void assert_near_sv(math::vector v1, math::vector v2) {
     ASSERT_NEAR(norm(v1.subvec(3,6)-v2.subvec(3,6)), 0, 1);
 }
 
-TEST(TestOrbitalElements, GeneralTest) {
+TEST(TestOrbit, GeneralTest) {
     Body earth(5.9733e24, {0, 0, 0, 0, 0, 0});
 
     // First case
-    OrbitalElements oe1{
+    Orbit oe1{
         8.788e6,
         0.171212,
         deg2rad(255.279),
@@ -28,7 +28,7 @@ TEST(TestOrbitalElements, GeneralTest) {
     assert_near_sv(sv1_expected, oe1.to_sv(earth).get_rv());
 
     // Second case
-    OrbitalElements oe2{
+    Orbit oe2{
         -16725e3,
         1.4,
         deg2rad(40),
