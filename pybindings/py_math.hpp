@@ -4,9 +4,9 @@
 #include <sstream>
 
 #include <math/Vector.hpp>
-#include <math/Vector.cpp> // pybind seems not only to need the header but also the source
 #include <math/Legendre.hpp>
 #include <math/SphericalHarmonics.hpp>
+#include <math/Utils.hpp>
 
 namespace py = pybind11;
 

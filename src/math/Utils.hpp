@@ -1,17 +1,12 @@
 #include <stdexcept>
+#include <math.h>
 
 #ifndef _UTILS_HPP_
 #define _UTILS_HPP_
 
-unsigned long long factorial(int n) {
-    return n <= 1 ? 1LL : n*factorial(n-1);
-}
-
-int C(int n, int k) {
-    if (n<k) {
-        throw std::invalid_argument( "Unexisting combinatorial number: k cannot be larger than n" );
-    }
-    return factorial(n) / (factorial(k) * factorial(n-k));
-}
+unsigned long long factorial(int n);
+int C(int n, int k);
+double rad2deg(double rad);
+double deg2rad(double deg);
 
 #endif //_UTILS_HPP_

@@ -33,6 +33,7 @@ public:
                 }
             }
         }
+        return true;
     }
 
     vector operator+(const vector& v2) {
@@ -104,7 +105,7 @@ public:
         } // Call the base class method
     }
 
-    math::vector subvec(int start, int end) {
+    math::vector subvec(int start, int end) const {
         math::vector v;
         for(int i=start; i<end; i++) {
             v.push_back(this->at(i));

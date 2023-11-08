@@ -9,3 +9,8 @@ TEST(TestUtils, Factorial) {
 TEST(TestUtils, BinomialNumbers) {
     ASSERT_EQ(C(15, 12), 455);
 }
+
+TEST(TestUtils, DegRad) {
+    ASSERT_EQ(deg2rad(15), 15*M_PI/180);
+    ASSERT_EQ(rad2deg(1), 180/M_PI);
+}

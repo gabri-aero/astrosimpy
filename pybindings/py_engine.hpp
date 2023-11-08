@@ -1,5 +1,4 @@
 #include <pybind11/pybind11.h>
-#include <engine/AstroEngine.cpp>
 #include <engine/AstroEngine.hpp>
 
 namespace py = pybind11;
