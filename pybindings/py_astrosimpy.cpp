@@ -3,6 +3,7 @@
 #include "py_math.hpp"
 #include "py_engine.hpp"
 #include "py_numerical.hpp"
+#include "py_orbit.hpp"
 
 namespace py = pybind11;
 
@@ -18,5 +19,5 @@ PYBIND11_MODULE(_core, m) {
     init_bodies(bodies); 
     init_numerical(numerical);
     init_engine(engine);
-    //init_orbit(orbit);
+    init_orbit(orbit);
 }
